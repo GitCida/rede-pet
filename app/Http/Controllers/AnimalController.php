@@ -48,17 +48,25 @@ class AnimalController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $animal_id)
     {
-        //
+        $animal = Animal::findOrFail($animal_id);
+        return view('animals.edit', ['animal' => $animal]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $animal_id)
     {
-        //
+        $animal = Animal::findOrFail($animal_id);
+        $updated = $animal->update($request->except(['_token', '_method']));
+        if($updated) {
+            return redirect()->route('animals.index');
+        }
+        else {
+            return redirect()->back();
+        }
     }
 
     /**

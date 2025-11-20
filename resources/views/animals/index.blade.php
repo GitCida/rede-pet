@@ -7,7 +7,7 @@
     <title>index</title>
 </head>
 <body>
-    <a href="">Criar evento</a>
+    <a href="{{ route('animals.create') }}">Cadastrar animal</a>
 </body>
 </html>
 <table>
@@ -17,7 +17,7 @@
             <th>Nome</th>
             <th>Idade</th>
             <th>Porte</th>
-            <th>Gender</th>
+            <th>Gênero</th>
         </tr>
     </thead>
     <tbody>
@@ -29,7 +29,7 @@
             <td>{{ $animal->size }}</td>
             <td>{{ $animal->gender }}</td>
             <td>
-                <a href="">Editar</a> | 
+                <a href="{{ route('animals.edit', $animal->animal_id) }}">Editar</a> | 
             </td>
         </tr>
         @endforeach
