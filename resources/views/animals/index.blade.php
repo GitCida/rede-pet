@@ -31,6 +31,13 @@
             <td>
                 <a href="{{ route('animals.edit', $animal->animal_id) }}">Editar</a> | 
             </td>
+            <td>
+                <form action="{{ route('animals.destroy', $animal->animal_id) }}" method="post">
+                    @method('DELETE')
+                    @csrf
+                    <input type="submit" value="Deletar" onclick="return confirm('Tem certeza que deseja deletar?')">
+                </form>
+            </td>
         </tr>
         @endforeach
     </tbody>

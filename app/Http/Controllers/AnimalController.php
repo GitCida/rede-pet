@@ -48,18 +48,18 @@ class AnimalController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $animal_id)
+    public function edit(string $id)
     {
-        $animal = Animal::findOrFail($animal_id);
+        $animal = Animal::findOrFail($id);
         return view('animals.edit', ['animal' => $animal]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $animal_id)
+    public function update(Request $request, string $id)
     {
-        $animal = Animal::findOrFail($animal_id);
+        $animal = Animal::findOrFail($id);
         $updated = $animal->update($request->except(['_token', '_method']));
         if($updated) {
             return redirect()->route('animals.index');
@@ -74,6 +74,8 @@ class AnimalController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $animal = Animal::findOrFail($id);
+        $animal->delete();
+        return redirect()->back();
     }
 }

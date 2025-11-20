@@ -9,6 +9,6 @@
     <label for="size">Porte do animal: </label>
     <input type="text" name="size" value="{{ $animal->size }}" required>
     <label for="gender">Gênero do animal: </label>
-    <input type="text" name="name" value="{{ $animal->gender }}" required>
+    <input type="text" name="gender" value="{{ $animal->gender }}" required>
     <input type="submit" value="Editar">
 </form>

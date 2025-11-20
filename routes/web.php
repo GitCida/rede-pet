@@ -22,7 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/animals', [AnimalController::class, 'store'])->name('animals.store');
     Route::get('/animals/{animal}/edit', [AnimalController::class, 'edit'])->name('animals.edit');
     Route::put('/animals/{animal}', [AnimalController::class, 'update'])->name('animals.update');
-    // Route::delete('/animals/{animal}', [AnimalController::class, 'destroy'])->name('animals.destroy');
+    Route::delete('/animals/{animal}', [AnimalController::class, 'destroy'])->name('animals.destroy');
 });
 
 require __DIR__.'/auth.php';
