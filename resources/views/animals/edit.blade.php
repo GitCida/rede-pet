@@ -1,4 +1,4 @@
-<h3>Editar evento</h3>
+<h3>Editar</h3>
 <form action="{{ route('animals.update', ['animal' => $animal->animal_id]) }}" method="post">
     @csrf
     @method('PUT')
