@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\AdopterController;
+use App\Http\Controllers\SpeciesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,6 +32,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/adopters/{adopter}/edit', [AdopterController::class, 'edit'])->name('adopters.edit');
     Route::put('/adopters/{adopter}', [AdopterController::class, 'update'])->name('adopters.update');
     Route::delete('/adopters/{adopter}', [AdopterController::class, 'destroy'])->name('adopters.destroy');
+
+    Route::get('/species', [SpeciesController::class, 'index'])->name('species.index');
+    Route::get('/species/create', [SpeciesController::class, 'create'])->name('species.create');
+    Route::post('/species', [SpeciesController::class, 'store'])->name('species.store');
+    Route::get('/species/{specie}/edit', [SpeciesController::class, 'edit'])->name('species.edit');
+    Route::put('/species/{specie}', [SpeciesController::class, 'update'])->name('species.update');
+    Route::delete('/species/{specie}', [SpeciesController::class, 'destroy'])->name('species.destroy');
 });
 
 require __DIR__.'/auth.php';
