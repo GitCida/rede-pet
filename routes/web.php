@@ -5,6 +5,7 @@ use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\AdopterController;
 use App\Http\Controllers\SpeciesController;
 use App\Http\Controllers\VaccineController;
+use App\Http\Controllers\AdoptionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,7 +22,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('animals', AnimalController::class)->except(['show']);
-
     Route::resource('adopters', AdopterController::class)->except(['show']);
 
     Route::get('/species', [SpeciesController::class, 'index'])->name('species.index');
@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/species/{specie}', [SpeciesController::class, 'destroy'])->name('species.destroy');
     
     Route::resource('vaccines', VaccineController::class)->except(['show']);
+    Route::resource('adoptions', AdoptionController::class)->except(['show']);
 });
 
 require __DIR__.'/auth.php';

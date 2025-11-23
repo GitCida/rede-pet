@@ -4,7 +4,7 @@
     <label for="name">Nome da vacina: </label>
     <input type="text" name="name" required>
     <label for="description">Descrição: </label>
-    <textarea type="text" name="description" rows="4" cols="50" class="resize-none border rounded p-2 w-full" required>
+    <textarea type="text" name="description" required>
     </textarea>
     <label for="producer">Nome do fabricante: </label>
     <input type="text" name="producer" required>
