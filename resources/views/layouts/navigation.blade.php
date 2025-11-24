@@ -15,6 +15,21 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('animals.index')" :active="request()->routeIs('animals.index')">
+                        {{ __('Animais') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('species.index')" :active="request()->routeIs('species.index')">
+                        {{ __('Espécies') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('adopters.index')" :active="request()->routeIs('adopters.index')">
+                        {{ __('Adotantes') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('adoptions.index')" :active="request()->routeIs('adoptions.index')">
+                        {{ __('Adoções') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('vaccines.index')" :active="request()->routeIs('vaccines.index')">
+                        {{ __('Vacinas') }}
+                    </x-nav-link>
                 </div>
             </div>
 
