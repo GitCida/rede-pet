@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Adoption;
+use App\Models\Animal;
+use App\Models\Adopter;
 use Illuminate\Http\Request;
 
 class AdoptionController extends Controller
@@ -20,7 +22,9 @@ class AdoptionController extends Controller
      */
     public function create()
     {
-        return view('adoptions.create');
+        $animals = Animal::all();
+        $adopters = Adopter::all();
+        return view('adoptions.create', compact('animals', 'adopters'));
     }
 
     /**
@@ -50,8 +54,10 @@ class AdoptionController extends Controller
      */
     public function edit(string $id)
     {
+        $animals = Animal::all();
+        $adopters = Adopter::all();
         $adoption = Adoption::findOrFail($id);
-        return view('adoptions.edit', ['adoption' => $adoption]);
+        return view('adoptions.edit', compact('adoption', 'animals', 'adopters'));
     }
 
     /**

@@ -14,6 +14,8 @@
     <thead>
         <tr>
             <th>ID</th>
+            <th>Animal</th>
+            <th>Adotante</th>
             <th>Razão</th>
             <th>Observações</th>
             <th>Status</th>
@@ -23,6 +25,8 @@
         @foreach ($adoptions as $adoption)
         <tr>
             <td>{{ $adoption->adoption_id }}</td>
+            <td>{{ $adoption->animals->name }}</td>
+            <td>{{ $adoption->adopters->name }}</td>
             <td>{{ $adoption->reason }}</td>
             <td>{{ $adoption->observations }}</td>
             <td>{{ $adoption->status }}</td>
