@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Animal;
+use App\Models\Species;
 use Illuminate\Http\Request;
 
 class AnimalController extends Controller
@@ -20,7 +21,8 @@ class AnimalController extends Controller
      */
     public function create()
     {
-        return view('animals.create');
+        $species = Species::all();
+        return view('animals.create', compact('species'));
     }
 
     /**
@@ -50,8 +52,10 @@ class AnimalController extends Controller
      */
     public function edit(string $id)
     {
+        $species = Species::all();
+
         $animal = Animal::findOrFail($id);
-        return view('animals.edit', ['animal' => $animal]);
+        return view('animals.edit', compact('animal', 'species'));
     }
 
     /**

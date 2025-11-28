@@ -9,5 +9,12 @@
     <input type="text" name="size" required>
     <label for="gender">Digite o gênero: </label>
     <input type="text" name="gender" required>
+    <label for="species_id">Espécie:</label>
+    <select name="species_id" required>
+        <option value="">Selecione uma espécie</option>
+        @foreach ($species as $sp)
+            <option value="{{ $sp->species_id }}">{{ $sp->name }}</option>
+        @endforeach
+    </select>
     <input type="submit" value="Cadastrar">
 </form>

@@ -10,5 +10,14 @@
     <input type="text" name="size" value="{{ $animal->size }}" required>
     <label for="gender">Gênero do animal: </label>
     <input type="text" name="gender" value="{{ $animal->gender }}" required>
+    <label for="species_id">Espécie:</label>
+    <select name="species_id">
+        @foreach ($species as $sp)
+            <option value="{{ $sp->species_id }}"
+                {{ $animal->species_id == $sp->species_id ? 'selected' : '' }}>
+                {{ $sp->name }}
+            </option>
+        @endforeach
+    </select>
     <input type="submit" value="Editar">
 </form>

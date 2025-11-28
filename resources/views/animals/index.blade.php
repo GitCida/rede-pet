@@ -18,6 +18,7 @@
             <th>Idade</th>
             <th>Porte</th>
             <th>Gênero</th>
+            <th>Espécie</th>
         </tr>
     </thead>
     <tbody>
@@ -28,6 +29,7 @@
             <td>{{ $animal->age }}</td>
             <td>{{ $animal->size }}</td>
             <td>{{ $animal->gender }}</td>
+            <td>{{ $animal->species->name ?? 'Sem espécie' }}</td>
             <td>
                 <a href="{{ route('animals.edit', $animal->animal_id) }}">Editar</a> | 
             </td>

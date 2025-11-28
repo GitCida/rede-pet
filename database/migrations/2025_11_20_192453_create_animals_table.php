@@ -13,11 +13,15 @@ return new class extends Migration
     {
         Schema::create('animals', function (Blueprint $table) {
             $table->id('animal_id');
-            $table->timestamps();
+            $table->unsignedBigInteger('species_id');
+
+            $table->foreign('species_id')->references('species_id')->on('species')->onDelete('cascade');
+
             $table->string('name');
             $table->unsignedTinyInteger('age');
             $table->string('size');
             $table->string('gender');
+            $table->timestamps();
         });
     }
 
