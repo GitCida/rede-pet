@@ -31,6 +31,12 @@
         {{ $adoption->observations }}
     </textarea>
     <label for="status">Status: </label>
-    <input type="status" name="status" value="{{ $adoption->status }}" required>
+    <select name="status" required>
+        <option value="Pendente" {{ $adoption->status == 'Pendente' ? 'selected' : '' }}>Pendente</option>
+        <option value="Aprovada" {{ $adoption->status == 'Aprovada' ? 'selected' : '' }}>Aprovada</option>
+        <option value="Completada" {{ $adoption->status == 'Completada' ? 'selected' : '' }}>Completada</option>
+        <option value="Rejeitada" {{ $adoption->status == 'Rejeitada' ? 'selected' : '' }}>Rejeitada</option>
+        <option value="Cancelada" {{ $adoption->status == 'Cancelada' ? 'selected' : '' }}>Cancelada</option>
+    </select>
     <input type="submit" value="Editar">
 </form>

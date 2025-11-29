@@ -22,6 +22,12 @@
     <textarea type="text" name="observations" required>
     </textarea>
     <label for="status">Status: </label>
-    <input type="status" name="status" required>
+    <select name="status" required>
+        <option value="Pendente">Pendente</option>
+        <option value="Aprovada">Aprovada</option>
+        <option value="Completada">Completada</option>
+        <option value="Rejeitada">Rejeitada</option>
+        <option value="Cancelada">Cancelada</option>
+    </select>
     <input type="submit" value="Registrar">
 </form>
