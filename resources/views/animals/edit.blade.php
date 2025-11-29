@@ -7,9 +7,16 @@
     <label for="age">Idade do animal: </label>
     <input type="number" min="0" name="age" value="{{ $animal->age }}" required>
     <label for="size">Porte do animal: </label>
-    <input type="text" name="size" value="{{ $animal->size }}" required>
-    <label for="gender">Gênero do animal: </label>
-    <input type="text" name="gender" value="{{ $animal->gender }}" required>
+    <select name="size" required>
+        <option value="Pequeno" {{ $animal->size == 'Pequeno' ? 'selected' : '' }}>Pequeno</option>
+        <option value="Médio" {{ $animal->size == 'Médio' ? 'selected' : '' }}>Médio</option>
+        <option value="Grande" {{ $animal->size == 'Grande' ? 'selected' : '' }}>Grande</option>
+    </select>
+    <label for="gender">Gênero:</label>
+    <select name="gender" required>
+        <option value="Macho" {{ $animal->gender == 'Macho' ? 'selected' : '' }}>Macho</option>
+        <option value="Fêmea" {{ $animal->gender == 'Fêmea' ? 'selected' : '' }}>Fêmea</option>
+    </select>
     <label for="species_id">Espécie:</label>
     <select name="species_id">
         @foreach ($species as $sp)

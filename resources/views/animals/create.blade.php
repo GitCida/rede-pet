@@ -5,10 +5,17 @@
     <input type="text" name="name" required>
     <label for="age">Digite a idade: </label>
     <input type="number" min="0" name="age" required>
-    <label for="size">Digite o porte: </label>
-    <input type="text" name="size" required>
-    <label for="gender">Digite o gênero: </label>
-    <input type="text" name="gender" required>
+    <label for="size">Selecione o porte: </label>
+    <select name="size" required>
+        <option value="Pequeno">Pequeno</option>
+        <option value="Médio">Médio</option>
+        <option value="Grande">Grande</option>
+    </select>
+    <label for="gender">Selecione o gênero: </label>
+    <select name="gender" required>
+        <option value="Macho">Macho</option>
+        <option value="Fêmea">Fêmea</option>
+    </select>
     <label for="species_id">Espécie:</label>
     <select name="species_id" required>
         <option value="">Selecione uma espécie</option>
