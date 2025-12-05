@@ -1,4 +1,7 @@
 <h3>Cadastrar vacina</h3>
+@if (session()->has('message'))
+    {{ session()->get('message') }}
+@endif
 <form action="{{ route('vaccines.store') }}" method="post">
     @csrf
     <label for="name">Nome da vacina: </label>

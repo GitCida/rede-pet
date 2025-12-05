@@ -32,10 +32,10 @@ class AnimalController extends Controller
     {
         $created = Animal::create($request->all());
         if($created) {
-            return redirect()->route('animals.index');
+            return redirect()->route('animals.index')->with('message', 'Criado com sucesso!');
         }
         else {
-            return redirect()->back();
+            return redirect()->back()->with('message', 'Não foi possível criar.');
         }
     }
 
@@ -66,10 +66,10 @@ class AnimalController extends Controller
         $animal = Animal::findOrFail($id);
         $updated = $animal->update($request->except(['_token', '_method']));
         if($updated) {
-            return redirect()->route('animals.index');
+            return redirect()->route('animals.index')->with('message', 'Editado com sucesso!');
         }
         else {
-            return redirect()->back();
+            return redirect()->back()->with('message', 'Não foi possível editar');
         }
     }
 
@@ -80,6 +80,6 @@ class AnimalController extends Controller
     {
         $animal = Animal::findOrFail($id);
         $animal->delete();
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Deletado com sucesso!');
     }
 }

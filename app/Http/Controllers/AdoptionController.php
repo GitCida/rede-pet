@@ -34,10 +34,10 @@ class AdoptionController extends Controller
     {
         $created = Adoption::create($request->all());
         if($created) {
-            return redirect()->route('adoptions.index');
+            return redirect()->route('adoptions.index')->with('message', 'Criado com sucesso!');
         }
         else {
-            return redirect()->back();
+            return redirect()->back()->with('message', 'Não foi possível criar.');
         }
     }
 
@@ -68,10 +68,10 @@ class AdoptionController extends Controller
         $adoption = Adoption::findOrFail($id);
         $updated = $adoption->update($request->except(['_token', '_method']));
         if($updated) {
-            return redirect()->route('adoptions.index');
+            return redirect()->route('adoptions.index')->with('message', 'Editado com sucesso!');
         }
         else {
-            return redirect()->back();
+            return redirect()->back()->with('message', 'Não foi possível editar.');
         }
     }
 
@@ -82,6 +82,6 @@ class AdoptionController extends Controller
     {
         $adoption = Adoption::findOrFail($id);
         $adoption->delete();
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Deletado com sucesso!');
     }
 }

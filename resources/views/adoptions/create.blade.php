@@ -1,4 +1,7 @@
 <h3>Registrar adoção</h3>
+@if (session()->has('message'))
+    {{ session()->get('message') }}
+@endif
 <form action="{{ route('adoptions.store') }}" method="post">
     @csrf
     <label for="adopter_id">Adotante: </label>

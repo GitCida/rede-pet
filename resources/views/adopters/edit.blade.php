@@ -1,4 +1,7 @@
 <h3>Editar</h3>
+@if (session()->has('message'))
+    {{ session()->get('message') }}
+@endif
 <form action="{{ route('adopters.update', ['adopter' => $adopter->adopter_id]) }}" method="post">
     @csrf
     @method('PUT')

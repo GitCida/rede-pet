@@ -30,10 +30,10 @@ class VaccineController extends Controller
     {
         $created = Vaccine::create($request->all());
         if($created) {
-            return redirect()->route('vaccines.index');
+            return redirect()->route('vaccines.index')->with('message', 'Criado com sucesso!');
         }
         else {
-            return redirect()->back();
+            return redirect()->back()->with('message', 'Não foi possível criar.');
         }
     }
 
@@ -62,10 +62,10 @@ class VaccineController extends Controller
         $vaccine = Vaccine::findOrFail($id);
         $updated = $vaccine->update($request->except(['_token', '_method']));
         if($updated) {
-            return redirect()->route('vaccines.index');
+            return redirect()->route('vaccines.index')->with('message', 'Editado com sucesso!');
         }
         else {
-            return redirect()->back();
+            return redirect()->back()->with('message', 'Não foi possível editar.');
         }
     }
 
@@ -76,6 +76,6 @@ class VaccineController extends Controller
     {
         $vaccine = Vaccine::findOrFail($id);
         $vaccine->delete();
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Deletado com sucesso!');
     }
 }

@@ -30,10 +30,10 @@ class AdopterController extends Controller
     {
         $created = Adopter::create($request->all());
         if($created) {
-            return redirect()->route('adopters.index');
+            return redirect()->route('adopters.index')->with('message', 'Criado com sucesso!');
         }
         else {
-            return redirect()->back();
+            return redirect()->back()->with('message', 'Não foi possível criar.');
         }
     }
 
@@ -62,10 +62,10 @@ class AdopterController extends Controller
         $adopter = Adopter::findOrFail($id);
         $updated = $adopter->update($request->except(['_token', '_method']));
         if($updated) {
-            return redirect()->route('adopters.index');
+            return redirect()->route('adopters.index')->with('message', 'Editado com sucesso!');
         }
         else {
-            return redirect()->back();
+            return redirect()->back()->with('message', 'Não foi possível editar.');
         }
     }
 
@@ -76,6 +76,6 @@ class AdopterController extends Controller
     {
         $adopter = Adopter::findOrFail($id);
         $adopter->delete();
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Deletado com sucesso!');
     }
 }

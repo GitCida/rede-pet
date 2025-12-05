@@ -1,4 +1,7 @@
 <h3>Cadastrar adotante</h3>
+@if (session()->has('message'))
+    {{ session()->get('message') }}
+@endif
 <form action="{{ route('adopters.store') }}" method="post">
     @csrf
     <label for="name">Nome do adotante: </label>

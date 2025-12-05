@@ -30,10 +30,10 @@ class SpeciesController extends Controller
     {
         $created = Species::create($request->all());
         if($created) {
-            return redirect()->route('species.index');
+            return redirect()->route('species.index')->with('message', 'Criado com sucesso!');
         }
         else {
-            return redirect()->back();
+            return redirect()->back()->with('message', 'Não foi possível criar.');
         }
     }
 
@@ -62,10 +62,10 @@ class SpeciesController extends Controller
         $specie = Species::findOrFail($id);
         $updated = $specie->update($request->except(['_token', '_method']));
         if($updated) {
-            return redirect()->route('species.index');
+            return redirect()->route('species.index')->with('message', 'Editado com sucesso!');
         }
         else {
-            return redirect()->back();
+            return redirect()->back()->with('message', 'Não foi possível editar.');
         }
     }
 
@@ -76,6 +76,6 @@ class SpeciesController extends Controller
     {
         $specie = Species::findOrFail($id);
         $specie->delete();
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Deletado com sucesso!');
     }
 }

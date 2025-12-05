@@ -1,4 +1,7 @@
 <h3>Cadastrar animal</h3>
+@if (session()->has('message'))
+    {{ session()->get('message') }}
+@endif
 <form action="{{ route('animals.store') }}" method="post">
     @csrf
     <label for="name">Digite o nome do animal: </label>
