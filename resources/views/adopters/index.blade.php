@@ -15,7 +15,6 @@
         <tr>
             <th>ID</th>
             <th>Nome</th>
-            <th>Email</th>
             <th>Telefone</th>
             <th>Endereço</th>
         </tr>
@@ -25,7 +24,6 @@
         <tr>
             <td>{{ $adopter->adopter_id }}</td>
             <td>{{ $adopter->name }}</td>
-            <td>{{ $adopter->email }}</td>
             <td>{{ $adopter->phone_number }}</td>
             <td>{{ $adopter->address }}</td>
             <td>

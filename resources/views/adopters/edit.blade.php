@@ -4,8 +4,6 @@
     @method('PUT')
     <label for="name">Nome do adotante: </label>
     <input type="text" name="name" value="{{ $adopter->name }}" required>
-    <label for="email">Email: </label>
-    <input type="email" name="email" value="{{ $adopter->email }}" required>
     <label for="phone_number">Telefone: </label>
     <input type="number" min="0" name="phone_number" value="{{ $adopter->phone_number }}" required>
     <label for="address">Endereço: </label>
