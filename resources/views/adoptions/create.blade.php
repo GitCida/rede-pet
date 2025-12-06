@@ -5,24 +5,36 @@
 <form action="{{ route('adoptions.store') }}" method="post">
     @csrf
     <label for="adopter_id">Adotante: </label>
-    <select name="adopter_id" required>
+    <select name="adopter_id">
         <option value="">Selecione uma adotante</option>
         @foreach ($adopters as $adopter)
             <option value="{{ $adopter->adopter_id }}">{{ $adopter->name }}</option>
         @endforeach
     </select>
+    @error('adopter_id')
+        <p>{{ $message }}</p>
+    @enderror
+
     <label for="animal_id">Animal: </label>
-    <select name="animal_id" required>
+    <select name="animal_id">
         <option value="">Selecione uma animal: </option>
         @foreach ($animals as $animal)
             <option value="{{ $animal->animal_id }}">{{ $animal->name }}</option>
         @endforeach
     </select>
+    @error('animal_id')
+        <p>{{ $message }}</p>
+    @enderror
+
     <label for="reason">Razão: </label>
     <textarea type="text" name="reason" required>
     </textarea>
+    @error('reason')
+        <p>{{ $message }}</p>
+    @enderror
+
     <label for="status">Status: </label>
-    <select name="status" required>
+    <select name="status">
         <option value="Pendente">Pendente</option>
         <option value="Aprovada">Aprovada</option>
         <option value="Completada">Completada</option>

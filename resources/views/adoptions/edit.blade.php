@@ -14,6 +14,9 @@
             </option>
         @endforeach
     </select>
+    @error('adopter_id')
+        <p>{{ $message }}</p>
+    @enderror
 
     <label for="animal_id">Adotante:</label>
     <select name="animal_id">
@@ -24,18 +27,26 @@
             </option>
         @endforeach
     </select>
+    @error('animal_id')
+        <p>{{ $message }}</p>
+    @enderror
 
     <label for="reason">Razão: </label>
     <textarea type="text" name="reason" required>
         {{ $adoption->reason }}
     </textarea>
+    @error('reason')
+        <p>{{ $message }}</p>
+    @enderror
+
     <label for="status">Status: </label>
-    <select name="status" required>
+    <select name="status">
         <option value="Pendente" {{ $adoption->status == 'Pendente' ? 'selected' : '' }}>Pendente</option>
         <option value="Aprovada" {{ $adoption->status == 'Aprovada' ? 'selected' : '' }}>Aprovada</option>
         <option value="Completada" {{ $adoption->status == 'Completada' ? 'selected' : '' }}>Completada</option>
         <option value="Rejeitada" {{ $adoption->status == 'Rejeitada' ? 'selected' : '' }}>Rejeitada</option>
         <option value="Cancelada" {{ $adoption->status == 'Cancelada' ? 'selected' : '' }}>Cancelada</option>
     </select>
+
     <input type="submit" value="Editar">
 </form>
