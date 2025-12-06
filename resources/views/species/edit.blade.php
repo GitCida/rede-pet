@@ -7,5 +7,9 @@
     @method('PUT')
     <label for="name">Nome da espécie: </label>
     <input type="text" name="name" value="{{ $specie->name }}" required>
+    @error('name')
+        <p>{{ $message }}</p>
+    @enderror
+    
     <input type="submit" value="Editar">
 </form>

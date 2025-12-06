@@ -5,6 +5,10 @@
 <form action="{{ route('species.store') }}" method="post">
     @csrf
     <label for="name">Digite o nome da espécie: </label>
-    <input type="text" name="name" required>
+    <input type="text" name="name" value="{{ old('name') }}" required>
+    @error('name')
+        <p>{{ $message }}</p>
+    @enderror
+
     <input type="submit" value="Cadastrar">
 </form>
