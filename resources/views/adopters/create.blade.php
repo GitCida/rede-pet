@@ -5,19 +5,19 @@
 <form action="{{ route('adopters.store') }}" method="post">
     @csrf
     <label for="name">Nome do adotante: </label>
-    <input type="text" name="name" value="{{ old('name') }}">
+    <input type="text" name="name" value="{{ old('name') }}" required>
     @error('name')
         <p>{{ $message }}</p>
     @enderror
 
     <label for="phone_number">Telefone: </label>
-    <input type="text" name="phone_number" value="{{ old('phone_number') }}">
+    <input type="text" name="phone_number" value="{{ old('phone_number') }}" required>
     @error('phone_number')
         <p>{{ $message }}</p>
     @enderror
 
     <label for="address">Endereço: </label>
-    <input type="text" name="address" value="{{ old('address') }}">
+    <input type="text" name="address" value="{{ old('address') }}" required>
     @error('address')
         <p>{{ $message }}</p>
     @enderror

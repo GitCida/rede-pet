@@ -9,7 +9,6 @@ class Vaccine extends Model
     protected $primaryKey = 'vaccine_id';
     protected $fillable = [
         'name',
-        'description',
         'producer',
     ];
 }

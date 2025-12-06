@@ -16,7 +16,6 @@
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Descrição</th>
                 <th>Fabricante</th>
             </tr>
         </thead>
@@ -25,7 +24,6 @@
             <tr>
                 <td>{{ $vaccine->vaccine_id }}</td>
                 <td>{{ $vaccine->name }}</td>
-                <td>{{ $vaccine->description }}</td>
                 <td>{{ $vaccine->producer }}</td>
                 <td>
                     <a href="{{ route('vaccines.edit', $vaccine->vaccine_id) }}">Editar</a> | 

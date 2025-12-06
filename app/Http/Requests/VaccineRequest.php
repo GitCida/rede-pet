@@ -22,7 +22,13 @@ class VaccineRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required','string','min:3','max:255'],
+            'producer' => ['required', 'string', 'min:3', 'max:255'],
         ];
+    }
+
+    public function messages(): array
+    {
+        return ['producer.required' => 'O campo fabricante é obrigatório.'];
     }
 }

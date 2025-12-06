@@ -7,11 +7,15 @@
     @method('PUT')
     <label for="name">Nome da vacina: </label>
     <input type="text" name="name" value="{{ $vaccine->name }}" required>
-    <label for="description">Descrição: </label>
-    <textarea type="text" name="description" required>
-        {{ $vaccine->description }}
-    </textarea>
+    @error('name')
+        <p>{{ $message }}</p>
+    @enderror
+
     <label for="producer">Nome do fabricante: </label>
     <input type="text" name="producer" value="{{ $vaccine->producer }}" required>
+    @error('producer')
+        <p>{{ $message }}</p>
+    @enderror
+
     <input type="submit" value="Editar">
 </form>
