@@ -22,7 +22,16 @@ class AnimalRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required','string','min:3','max:255'],
+            'age' => ['required','integer','min:0','max:120' ],
+            'size' => ['required'],
+            'gender' => ['required'],
+            'species_id' => ['required'],
         ];
+    }
+
+    public function messages(): array
+    {
+        return ['species_id.required' => 'O campo espécies é obrigatório.'];
     }
 }
