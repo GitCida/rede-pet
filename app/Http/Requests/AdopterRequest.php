@@ -22,7 +22,14 @@ class AdopterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required','string','min:3','max:255'],
+            'phone_number' => ['required', 'string', 'Celular'],
+            'address' => ['required', 'string', 'min:5', 'max:255'],
         ];
+    }
+
+    public function messages(): array
+    {
+        return ['phone_number.required' => 'O campo telefone é obrigatório.'];
     }
 }
