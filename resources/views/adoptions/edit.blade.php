@@ -29,10 +29,6 @@
     <textarea type="text" name="reason" required>
         {{ $adoption->reason }}
     </textarea>
-    <label for="observations">Observações: </label>
-    <textarea type="text" name="observations" required>
-        {{ $adoption->observations }}
-    </textarea>
     <label for="status">Status: </label>
     <select name="status" required>
         <option value="Pendente" {{ $adoption->status == 'Pendente' ? 'selected' : '' }}>Pendente</option>

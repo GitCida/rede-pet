@@ -21,9 +21,6 @@
     <label for="reason">Razão: </label>
     <textarea type="text" name="reason" required>
     </textarea>
-    <label for="observations">Observações: </label>
-    <textarea type="text" name="observations" required>
-    </textarea>
     <label for="status">Status: </label>
     <select name="status" required>
         <option value="Pendente">Pendente</option>

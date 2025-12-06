@@ -19,7 +19,6 @@ return new class extends Migration
             $table->foreign('animal_id')->references('animal_id')->on('animals')->onDelete('cascade');
             $table->foreign('adopter_id')->references('adopter_id')->on('adopters')->onDelete('cascade');
             $table->text('reason');
-            $table->text('observations');
             $table->string('status');
             $table->timestamps();
         });

@@ -23,7 +23,6 @@ class Adoption extends Model
         'adopter_id',
         'animal_id',
         'reason',
-        'observations',
         'status',
     ];
 }

@@ -18,7 +18,6 @@
                 <th>Animal</th>
                 <th>Adotante</th>
                 <th>Razão</th>
-                <th>Observações</th>
                 <th>Status</th>
             </tr>
         </thead>
@@ -29,7 +28,6 @@
                 <td>{{ $adoption->animals->name }}</td>
                 <td>{{ $adoption->adopters->name }}</td>
                 <td>{{ $adoption->reason }}</td>
-                <td>{{ $adoption->observations }}</td>
                 <td>{{ $adoption->status }}</td>
                 <td>
                     <a href="{{ route('adoptions.edit', $adoption->adoption_id) }}">Editar</a> | 
