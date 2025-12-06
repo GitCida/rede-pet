@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Adoption;
 use App\Models\Animal;
 use App\Models\Adopter;
-use Illuminate\Http\Request;
+use App\Http\Requests\AdoptionRequest;
 
 class AdoptionController extends Controller
 {
@@ -30,7 +30,7 @@ class AdoptionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AdoptionRequest $request)
     {
         $created = Adoption::create($request->all());
         if($created) {
@@ -63,7 +63,7 @@ class AdoptionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(AdoptionRequest $request, string $id)
     {
         $adoption = Adoption::findOrFail($id);
         $updated = $adoption->update($request->except(['_token', '_method']));

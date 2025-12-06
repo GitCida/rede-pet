@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Animal;
 use App\Models\Species;
-use Illuminate\Http\Request;
+use App\Http\Requests\AnimalRequest;
 
 class AnimalController extends Controller
 {
@@ -28,7 +28,7 @@ class AnimalController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AnimalRequest $request)
     {
         $created = Animal::create($request->all());
         if($created) {
@@ -61,7 +61,7 @@ class AnimalController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(AnimalRequest $request, string $id)
     {
         $animal = Animal::findOrFail($id);
         $updated = $animal->update($request->except(['_token', '_method']));

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Species;
-use Illuminate\Http\Request;
+use App\Http\Requests\SpecieRequest;
 
 class SpeciesController extends Controller
 {
@@ -26,7 +26,7 @@ class SpeciesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SpecieRequest $request)
     {
         $created = Species::create($request->all());
         if($created) {
@@ -57,7 +57,7 @@ class SpeciesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(SpecieRequest $request, string $id)
     {
         $specie = Species::findOrFail($id);
         $updated = $specie->update($request->except(['_token', '_method']));

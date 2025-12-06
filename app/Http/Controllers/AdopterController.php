@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Adopter;
-use Illuminate\Http\Request;
+use App\Http\Requests\AdopterRequest;
 
 class AdopterController extends Controller
 {
@@ -26,7 +26,7 @@ class AdopterController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AdopterRequest $request)
     {
         $created = Adopter::create($request->all());
         if($created) {
@@ -57,7 +57,7 @@ class AdopterController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(AdopterRequest $request, string $id)
     {
         $adopter = Adopter::findOrFail($id);
         $updated = $adopter->update($request->except(['_token', '_method']));

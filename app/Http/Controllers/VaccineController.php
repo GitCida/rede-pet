@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Vaccine;
-use Illuminate\Http\Request;
+use App\Http\Requests\VaccineRequest;
 
 class VaccineController extends Controller
 {
@@ -26,7 +26,7 @@ class VaccineController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(VaccineRequest $request)
     {
         $created = Vaccine::create($request->all());
         if($created) {
@@ -57,7 +57,7 @@ class VaccineController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(VaccineRequest $request, string $id)
     {
         $vaccine = Vaccine::findOrFail($id);
         $updated = $vaccine->update($request->except(['_token', '_method']));
