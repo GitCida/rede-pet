@@ -6,10 +6,22 @@
     @csrf
     @method('PUT')
     <label for="name">Nome do adotante: </label>
-    <input type="text" name="name" value="{{ $adopter->name }}" required>
+    <input type="text" name="name" value="{{ $adopter->name }}">
+    @error('address')
+        <p>{{ $message }}</p>
+    @enderror
+
     <label for="phone_number">Telefone: </label>
-    <input type="text" name="phone_number" value="{{ $adopter->phone_number }}" required>
+    <input type="text" name="phone_number" value="{{ $adopter->phone_number }}">
+    @error('address')
+        <p>{{ $message }}</p>
+    @enderror
+
     <label for="address">Endereço: </label>
-    <input type="text" name="address" value="{{ $adopter->address }}" required>
+    <input type="text" name="address" value="{{ $adopter->address }}">
+    @error('address')
+        <p>{{ $message }}</p>
+    @enderror
+    
     <input type="submit" value="Editar">
 </form>
