@@ -1,3 +1,4 @@
+@vite(['resources/js/app.js'])
 <h3>Cadastrar adotante</h3>
 @if (session()->has('message'))
     {{ session()->get('message') }}
@@ -11,7 +12,7 @@
     @enderror
 
     <label for="phone_number">Telefone: </label>
-    <input type="text" name="phone_number" value="{{ old('phone_number') }}" required>
+    <input type="text" name="phone_number" id="phone" value="{{ old('phone_number') }}" placeholder="(00) 00000-0000" required>
     @error('phone_number')
         <p>{{ $message }}</p>
     @enderror
@@ -24,3 +25,11 @@
 
     <input type="submit" value="Cadastrar">
 </form>
+<script>
+    const phoneMask = IMask(
+        document.getElementById('phone'),
+        {
+            mask: '(00)00000-0000'
+        }
+    );
+</script>

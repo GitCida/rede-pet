@@ -23,7 +23,7 @@ class AdopterRequest extends FormRequest
     {
         return [
             'name' => ['required','string','min:3','max:255'],
-            'phone_number' => ['required', 'string', 'Celular'],
+            'phone_number' => ['required', 'string', 'celular_com_ddd'],
             'address' => ['required', 'string', 'min:5', 'max:255'],
         ];
     }
