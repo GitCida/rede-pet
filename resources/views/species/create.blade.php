@@ -1,4 +1,5 @@
-<x-app-layout>
+@extends('layouts.template')
+@section('content')
     <h3>Cadastrar espécie</h3>
     @if (session()->has('message'))
         {{ session()->get('message') }}
@@ -13,4 +14,4 @@
 
         <input type="submit" value="Cadastrar">
     </form>
-</x-app-layout>
+@endsection

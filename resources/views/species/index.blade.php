@@ -1,4 +1,5 @@
-<x-app-layout>
+@extends('layouts.template')
+@section('content')
     <a href="{{ route('species.create') }}">Cadastrar espécie</a>
     @if (session()->has('message'))
         {{ session()->get('message') }}
@@ -29,4 +30,4 @@
             @endforeach
         </tbody>
     </table>
-</x-app-layout>
+@endsection

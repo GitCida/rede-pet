@@ -1,4 +1,5 @@
-<x-app-layout>
+@extends('layouts.template')
+@section('content')
     <h3>Registrar adoção</h3>
     @if (session()->has('message'))
         {{ session()->get('message') }}
@@ -44,4 +45,4 @@
         </select>
         <input type="submit" value="Registrar">
     </form>
-</x-app-layout>
+@endsection

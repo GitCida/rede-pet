@@ -1,4 +1,5 @@
-<x-app-layout>
+@extends('layouts.template')
+@section('content')
     @vite(['resources/js/app.js'])
     <h3>Cadastrar adotante</h3>
     @if (session()->has('message'))
@@ -13,7 +14,7 @@
         @enderror
 
         <label for="phone_number">Telefone: </label>
-        <input type="text" name="phone_number" id="phone" value="{{ old('phone_number') }}" placeholder="(00) 00000-0000" required>
+        <input type="text" name="phone_number" id="phone" value="{{ old('phone_number') }}" placeholder="(00)00000-0000" required>
         @error('phone_number')
             <p>{{ $message }}</p>
         @enderror
@@ -34,4 +35,4 @@
             }
         );
     </script>
-</x-app-layout>
+@endsection

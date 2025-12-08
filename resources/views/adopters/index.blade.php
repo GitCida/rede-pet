@@ -1,4 +1,5 @@
-<x-app-layout>
+@extends('layouts.template')
+@section('content')
     <a href="{{ route('adopters.create') }}">Cadastrar adotante</a>
     @if (session()->has('message'))
         {{ session()->get('message') }}
@@ -33,4 +34,4 @@
             @endforeach
         </tbody>
     </table>
-</x-app-layout>
+@endsection
