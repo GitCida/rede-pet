@@ -33,8 +33,7 @@
             <h2 class="text-xl font-semibold text-gray-800">Dashboard</h2>
         </header>
 
-        <section class="p-6">
-            <h3 class="text-lg font-semibold mb-5 text-gray-700">Visão Geral</h3>    
+        <section class="p-6">    
             @yield('content')
         </section>
 

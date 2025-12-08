@@ -1,35 +1,67 @@
 @extends('layouts.template')
+
 @section('content')
-    <a href="{{ route('vaccines.create') }}">Cadastrar vacina</a>
+
+<div class="px-6 py-6">
+
+    <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-semibold text-gray-800">Vacinas</h2>
+
+        <a href="{{ route('vaccines.create') }}" class="bg-[#5EC2B7] hover:bg-[#2D6A6A] text-white font-medium px-5 py-2.5 rounded-lg transition">
+            Cadastrar vacina
+        </a>
+    </div>
+
     @if (session()->has('message'))
-        {{ session()->get('message') }}
+        <div class="mb-4 px-4 py-3 rounded-lg bg-green-100 text-green-700 border border-green-300">
+            {{ session()->get('message') }}
+        </div>
     @endif
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Fabricante</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($vaccines as $vaccine)
-            <tr>
-                <td>{{ $vaccine->vaccine_id }}</td>
-                <td>{{ $vaccine->name }}</td>
-                <td>{{ $vaccine->producer }}</td>
-                <td>
-                    <a href="{{ route('vaccines.edit', $vaccine->vaccine_id) }}">Editar</a> | 
-                </td>
-                <td>
-                    <form action="{{ route('vaccines.destroy', $vaccine->vaccine_id) }}" method="post">
-                        @method('DELETE')
-                        @csrf
-                        <input type="submit" value="Deletar" onclick="return confirm('Tem certeza que deseja deletar?')">
-                    </form>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+
+    <div class="bg-white shadow-md rounded-xl border border-gray-200 overflow-hidden">
+        <table class="w-full border-collapse text-left">
+            <thead class="bg-gray-50 border-b border-gray-200">
+                <tr>
+                    <th class="py-3 px-4 text-sm font-semibold text-gray-600">ID</th>
+                    <th class="py-3 px-4 text-sm font-semibold text-gray-600">Nome</th>
+                    <th class="py-3 px-4 text-sm font-semibold text-gray-600">Fabricante</th>
+                    <th class="py-3 px-4 text-sm font-semibold text-gray-600">Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach ($vaccines as $vaccine)
+                    <tr class="border-b hover:bg-gray-50 transition">
+                        <td class="py-3 px-4 text-gray-700">{{ $vaccine->vaccine_id }}</td>
+                        <td class="py-3 px-4 text-gray-700">{{ $vaccine->name }}</td>
+                        <td class="py-3 px-4 text-gray-700">{{ $vaccine->producer }}</td>
+
+                        <td class="py-3 px-4">
+                            <div class="flex items-center gap-3">
+
+                                <a href="{{ route('vaccines.edit', $vaccine->vaccine_id) }}" class="text-blue-600 hover:text-blue-800 font-medium">
+                                    Editar
+                                </a>
+
+                                <form action="{{ route('vaccines.destroy', $vaccine->vaccine_id) }}" method="post" onsubmit="return confirm('Tem certeza que deseja deletar?')">
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit"
+                                        class="text-red-600 hover:text-red-800 font-medium">
+                                        Deletar
+                                    </button>
+                                </form>
+
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+
 @endsection
