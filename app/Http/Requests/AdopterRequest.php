@@ -30,6 +30,9 @@ class AdopterRequest extends FormRequest
 
     public function messages(): array
     {
-        return ['phone_number.required' => 'O campo telefone é obrigatório.'];
+        return ['phone_number.required' => 'O campo telefone é obrigatório.',
+                'phone_number.celular_com_ddd' => 'Esse telefone não está em um formato válido.',
+    
+        ];
     }
 }

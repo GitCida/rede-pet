@@ -1,6 +1,6 @@
 @extends('layouts.template')
 @section('content')
-
+@vite(['resources/js/app.js'])
 <div class="px-6 py-6">
 
     <div class="max-w-xl mx-auto bg-white shadow-md rounded-xl p-8 border border-gray-200">
