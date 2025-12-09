@@ -7,8 +7,7 @@
     <div class="flex items-center justify-between mb-6">
         <h2 class="text-2xl font-semibold text-gray-800">Espécies</h2>
 
-        <a href="{{ route('species.create') }}"
-           class="bg-[#5EC2B7] hover:bg-[#2D6A6A] text-white font-medium px-5 py-2.5 rounded-lg transition">
+        <a href="{{ route('species.create') }}" class="bg-[#5EC2B7] hover:bg-[#2D6A6A] text-white font-medium px-5 py-2.5 rounded-lg transition">
             Cadastrar espécie
         </a>
     </div>
@@ -31,21 +30,18 @@
 
             <tbody>
                 @foreach ($species as $specie)
-                    <tr class="border-b hover:bg-gray-50 transition">
+                    <tr class="border-b border-b-gray-300 hover:bg-gray-50 transition">
                         <td class="py-3 px-4 text-gray-700">{{ $specie->species_id }}</td>
                         <td class="py-3 px-4 text-gray-700">{{ $specie->name }}</td>
 
                         <td class="py-3 px-4">
                             <div class="flex items-center gap-3">
 
-                                <a href="{{ route('species.edit', $specie->species_id) }}"
-                                   class="text-blue-600 hover:text-blue-800 font-medium">
+                                <a href="{{ route('species.edit', $specie->species_id) }}" class="text-blue-600 hover:text-blue-800 font-medium">
                                     Editar
                                 </a>
 
-                                <form action="{{ route('species.destroy', $specie->species_id) }}"
-                                      method="post"
-                                      onsubmit="return confirm('Tem certeza que deseja deletar?')">
+                                <form action="{{ route('species.destroy', $specie->species_id) }}" method="post" onsubmit="return confirm('Tem certeza que deseja deletar?')">
 
                                     @csrf
                                     @method('DELETE')

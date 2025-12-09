@@ -34,7 +34,7 @@
 
             <tbody>
                 @foreach ($animals as $animal)
-                    <tr class="border-b hover:bg-gray-50 transition">
+                    <tr class="border-b border-b-gray-300 hover:bg-gray-50 transition">
                         <td class="py-3 px-4 text-gray-700">{{ $animal->animal_id }}</td>
                         <td class="py-3 px-4 text-gray-700">{{ $animal->name }}</td>
                         <td class="py-3 px-4 text-gray-700">{{ $animal->age }}</td>

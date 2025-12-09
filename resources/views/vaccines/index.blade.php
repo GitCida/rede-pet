@@ -31,7 +31,7 @@
 
             <tbody>
                 @foreach ($vaccines as $vaccine)
-                    <tr class="border-b hover:bg-gray-50 transition">
+                    <tr class="border-b border-b-gray-300 hover:bg-gray-50 transition">
                         <td class="py-3 px-4 text-gray-700">{{ $vaccine->vaccine_id }}</td>
                         <td class="py-3 px-4 text-gray-700">{{ $vaccine->name }}</td>
                         <td class="py-3 px-4 text-gray-700">{{ $vaccine->producer }}</td>

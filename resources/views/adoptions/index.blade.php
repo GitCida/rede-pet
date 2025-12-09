@@ -33,7 +33,7 @@
 
             <tbody>
                 @foreach ($adoptions as $adoption)
-                    <tr class="border-b hover:bg-gray-50 transition">
+                    <tr class="border-b border-b-gray-300 hover:bg-gray-50 transition">
                         <td class="py-3 px-4 text-gray-700">{{ $adoption->adoption_id }}</td>
                         <td class="py-3 px-4 text-gray-700">{{ $adoption->animals->name }}</td>
                         <td class="py-3 px-4 text-gray-700">{{ $adoption->adopters->name }}</td>
